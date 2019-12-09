@@ -1,0 +1,24 @@
+server:
+    port: 8892
+spring:
+    profiles:
+      active: dev
+# 通过yaml的document块模式配置
+----
+server:
+    port: 8892
+spring:
+    profiles: dev
+
+----
+server:
+    port: 8899
+spring:
+    profiles: prod
+
+
+----
+
+
+----
+
