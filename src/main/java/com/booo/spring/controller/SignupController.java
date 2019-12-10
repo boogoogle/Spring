@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController // 相当于上面两个注解的合体作用, 同样会把当前方法作为一个bean加入到容器中
 public class SignupController {
 
-
     public SignupController() {
     }
     // 用@value获取配置文件中的值
