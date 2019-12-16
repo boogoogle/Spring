@@ -42,4 +42,5 @@ public class UserController {
     public User getUser(@PathVariable("id") Integer id) {
         return userDao.get(id);
     }
+
 }
