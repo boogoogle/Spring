@@ -1,5 +1,7 @@
 package com.booo.spring.controller;
 
+import com.booo.spring.bean.User;
+import com.booo.spring.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -19,15 +21,26 @@ public class SignupController {
     @Autowired // 自动装配
     JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    UserMapper userMapper;
+
+
     // 用@value获取配置文件中的值
     @Value ("${person.last-name}")
     private String name;
 
     //    @ResponseBody
-    @RequestMapping("/hello")
-    public String hello(){
+    @RequestMapping("/add")
+    public Integer hello(){
+        User user =  new User("lisi", "1234");
+        int i = userMapper.insertUser(user);
+        return i;
+    }
 
-        return "hello " + name;
+    @GetMapping("/user/:id")
+    public String getUser(){
+//        User user = userMapper.getUserByI()
+        return "good";
     }
 
 
@@ -35,9 +48,9 @@ public class SignupController {
     public Map<String, Object> map() {
 //        String sql = "insert into users(id) values(1111113)";
 //        int b = jdbcTemplate.update(sql);
-        String sql = "select * from users";
+        String sql = "select * from department";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
 
-        return list.get(3);
+        return list.get(1);
     }
 }

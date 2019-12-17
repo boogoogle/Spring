@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.booo.spring.mapper.PersonMapper">
+    <select id="getPersonById" resultType="com.booo.spring.bean.Person">
+        SELECT * FROM persons WHERE id=#{id}
+    </select>
+    <insert id="insertPerson">
+        INSERT INTO persons(lastName) VALUES (#{lastName})
+    </insert>
+</mapper>

@@ -8,19 +8,22 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-@PropertySource("classpath:/druid.yml")
-@ConfigurationProperties(prefix = "spring.datasource")
+
+/**
+ * 配置Druid数据源
+ */
+
 @Configuration
 public class DruidConfig {
 
-    @ConfigurationProperties()
+    @ConfigurationProperties(prefix = "spring.datasource")
     @Bean
     public DataSource druid(){
         return new DruidDataSource();
